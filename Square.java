@@ -70,17 +70,40 @@ public class Square {
     }
 
     public void updatePossibilities(){
-        if(!this.locked){
-            for(Square p: this.peers){
+        if(!this.locked) {
+            for (Square p : this.peers) {
                 this.possibilities.remove(new Integer(p.cipher));
-                if(this.possibilities.size() == 1){
+                if (this.possibilities.size() == 1) {
                     this.cipher = this.possibilities.get(0);
                     this.locked = true;
                 }
             }
+            /*boolean onlyGroup = true;
+            boolean onlyLine = true;
+            boolean onlyRow = true;
+            Integer currentPoss = 0;
+            for(Integer possA: this.possibilities){
+                currentPoss = possA;
+                for(Square p: this.peers){
+                    for(Integer possB: p.possibilities){
+                        if(possA == possB && this.group == p.group){
+                            onlyGroup = false;
+                        }
+                        if(possA == possB && this.posX == p.posX){
+                            onlyLine = false;
+                        }
+                        if(possA == possB && this.posY == p.posY){
+                            onlyRow = false;
+                        }
+                    }
+                }
+            }
+            boolean only = onlyGroup || onlyLine || onlyRow;
+            if(only && currentPoss!=0){
+                this.cipher = currentPoss;
+                this.locked = true;
+            }*/
         }
-
-        //TODO: check if only square among peers with specific possibility exists
     }
 
     public String toString(){

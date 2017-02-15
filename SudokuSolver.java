@@ -22,7 +22,7 @@ public class SudokuSolver {
             s.findPeers(squares);
         }
 
-        for(int i = 0; i<10; i++){
+        for(int i = 0; i<5; i++){
             for(Square s: squares){
                 s.updatePossibilities();
                 if(s.posX == 3 && s.posY == 1) {
